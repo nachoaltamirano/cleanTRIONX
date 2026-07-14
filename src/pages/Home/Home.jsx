@@ -1,17 +1,13 @@
-import Hero from "../../components/common/Hero/Hero";
-import Categories from "./components/Categories";
-import FeaturedProducts from "./components/FeaturedProducts";
-import Benefits from "./components/Benefits";
-import Newsletter from "./components/Newsletter";
+import Hero from "../../components/home/Hero/Hero";
+import VideoBoxesSection from "../../components/home/VideoBoxesSection/VideoBoxesSection";
+import PersonalizadosBanner from "../../components/home/PersonalizadosBanner/PersonalizadosBanner";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <Categories />
-      <FeaturedProducts />
-      <Benefits />
-      <Newsletter />
+      <VideoBoxesSection />
+      <PersonalizadosBanner />
     </>
   );
 };
