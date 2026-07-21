@@ -1,6 +1,6 @@
-import Hero from "../../components/home/Hero/Hero";
-import VideoBoxesSection from "../../components/home/VideoBoxesSection/VideoBoxesSection";
-import PersonalizadosBanner from "../../components/home/PersonalizadosBanner/PersonalizadosBanner";
+import Hero from "../../components/home/Hero";
+import VideoBoxesSection from "../../components/home/VideoBoxesSection";
+import PersonalizadosBanner from "../../components/home/PersonalizadosBanner";
 
 const Home = () => {
   return (
