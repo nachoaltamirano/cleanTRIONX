@@ -17,12 +17,7 @@ const Navbar = () => {
     <header className="w-full border-b border-gray-100 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <NavLink to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-            T
-          </div>
-          <span className="text-lg font-semibold uppercase tracking-[0.3em] text-gray-900">
-            TRIONX
-          </span>
+          <img  src="/images/products/logo.png" alt="Logo" className="h-14 w-auto" />
         </NavLink>
 
         <nav className="hidden items-center gap-8 lg:flex">
