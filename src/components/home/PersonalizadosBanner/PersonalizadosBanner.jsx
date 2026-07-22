@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
+import { Button, Container } from "../../ui";
 import "./PersonalizadosBanner.css";
 
 const PersonalizadosBanner = () => {
@@ -22,7 +22,7 @@ const PersonalizadosBanner = () => {
 
       <div className="personalizados-overlay" />
 
-      <div className="personalizados-container">
+      <Container className="personalizados-container" maxWidth="lg" px="sm">
 
         <div className="personalizados-content">
 
@@ -61,13 +61,10 @@ const PersonalizadosBanner = () => {
 
           <div className="personalizados-actions">
 
-            <Link
-              to="/tienda/personalizados"
-              className="personalizados-button"
-            >
+            <Button to="/tienda/personalizados" className="personalizados-button">
               Solicitar diseño a medida
               <ArrowRight size={16} />
-            </Link>
+            </Button>
 
 
             <span>
@@ -161,7 +158,7 @@ const PersonalizadosBanner = () => {
         </div>
 
 
-      </div>
+      </Container>
 
 
     </section>

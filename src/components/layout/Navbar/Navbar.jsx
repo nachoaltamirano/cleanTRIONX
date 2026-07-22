@@ -1,17 +1,14 @@
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Menu, Search, ShoppingCart, X } from "lucide-react";
+import { navItems } from "../../../config/navigation";
+import { useCart } from "../../../features/cart/context/CartContext";
 
 const Navbar = () => {
-  const { pathname } = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { items } = useCart();
 
-  const navItems = [
-    { label: "Inicio", to: "/" },
-    { label: "Productos", to: "/products" },
-    { label: "Blog", to: "/blog" },
-    { label: "Contacto", to: "/contact" },
-  ];
+  const cartCount = items.reduce((total, item) => total + (item.quantity || 0), 0);
 
   return (
     <header className="w-full border-b border-gray-100 bg-white shadow-sm">
@@ -21,27 +18,19 @@ const Navbar = () => {
         </NavLink>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {navItems.map((item) => {
-            const isActive =
-              item.to === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.to);
-
-            return (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                aria-current={isActive ? "page" : undefined}
-                className={({ isActive: linkIsActive }) =>
-                  `text-sm font-medium transition-colors ${
-                    linkIsActive ? "text-red-600" : "text-gray-700 hover:text-red-600"
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            );
-          })}
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${
+                  isActive ? "text-red-600" : "text-gray-700 hover:text-red-600"
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -67,7 +56,7 @@ const Navbar = () => {
           >
             <ShoppingCart size={18} />
             <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-[10px] font-semibold text-white">
-              0
+              {cartCount}
             </span>
           </button>
 
@@ -85,28 +74,20 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="border-t border-gray-100 px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-3">
-            {navItems.map((item) => {
-              const isActive =
-                item.to === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.to);
-
-              return (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  aria-current={isActive ? "page" : undefined}
-                  className={({ isActive: linkIsActive }) =>
-                    `rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
-                      linkIsActive ? "bg-red-50 text-red-600" : "text-gray-700"
-                    }`
-                  }
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </NavLink>
-              );
-            })}
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) =>
+                  `rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                    isActive ? "bg-red-50 text-red-600" : "text-gray-700"
+                  }`
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
 
             <button
               type="button"

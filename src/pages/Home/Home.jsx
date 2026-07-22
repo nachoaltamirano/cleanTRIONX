@@ -4,11 +4,11 @@ import PersonalizadosBanner from "../../components/home/PersonalizadosBanner";
 
 const Home = () => {
   return (
-    <>
+    <main>
       <Hero />
       <VideoBoxesSection />
       <PersonalizadosBanner />
-    </>
+    </main>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Volume2, VolumeX } from "lucide-react";
+import { Button } from "../../ui";
 import "./VideoBoxesSection.css";
 
 const VideoBoxesSection = () => {
@@ -58,9 +59,9 @@ const VideoBoxesSection = () => {
             Categoría
           </h3>
 
-          <button>
+          <Button type="button" className="image-overlay-button">
             Ver Más
-          </button>
+          </Button>
 
         </div>
 
@@ -80,9 +81,9 @@ const VideoBoxesSection = () => {
             Promociones
           </h3>
 
-          <button>
+          <Button type="button" className="image-overlay-button">
             Ver Más
-          </button>
+          </Button>
 
         </div>
 

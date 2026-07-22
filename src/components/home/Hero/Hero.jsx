@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Button } from "../../ui";
 import "./Hero.css";
 
 const Hero = () => {
@@ -8,9 +8,7 @@ const Hero = () => {
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
-        <Link to="/tienda">
-          <button className="hero-button">Comprar Ahora</button>
-        </Link>
+        <Button to="/tienda">Comprar Ahora</Button>
       </div>
     </section>
   );

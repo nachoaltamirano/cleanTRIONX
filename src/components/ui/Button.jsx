@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Button = ({
   children,
   onClick,
@@ -6,6 +8,7 @@ const Button = ({
   variant = "primary",
   size = "md",
   disabled = false,
+  to,
 }) => {
   const baseClasses = "rounded-lg font-medium transition disabled:cursor-not-allowed disabled:opacity-60";
 
@@ -22,12 +25,22 @@ const Button = ({
     lg: "px-8 py-4 text-lg",
   };
 
+  const buttonClasses = `${baseClasses} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`;
+
+  if (to) {
+    return (
+      <Link to={to} className={buttonClasses}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClasses} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`}
+      className={buttonClasses}
     >
       {children}
     </button>

@@ -1,7 +1,12 @@
 import QueryProvider from "./QueryProvider";
+import { CartProvider } from "../features/cart/context/CartContext";
 
 const AppProviders = ({ children }) => {
-  return <QueryProvider>{children}</QueryProvider>;
+  return (
+    <QueryProvider>
+      <CartProvider>{children}</CartProvider>
+    </QueryProvider>
+  );
 };
 
 export default AppProviders;
